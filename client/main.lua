@@ -30,46 +30,49 @@ function startPoint()
     while not isInGame and isStartPoint do
         local _Wait = 500
         if not isInGame then
-            if GetDistanceBetweenCoords( 1359.22, 1138.97, 113.76, GetEntityCoords(GetPlayerPed(-1))) < 20.0 then
+            local PlayerPed = GetPlayerPed(-1)
+            local dst = GetDistanceBetweenCoords(1359.22, 1138.97, 113.76, GetEntityCoords(PlayerPed))
+            if dst < 20.0 then
                 DrawMarker(1, 1359.22, 1138.97, 113.76 - 1.5, 0, 0, 0, 0, 0, 0, 3.0001, 3.0001, 1.5001, 250, 250, 250, 180, 0, 0, 0,0)
                 _Wait = 1
-            end
-            if GetDistanceBetweenCoords( 1359.22, 1138.97, 113.76, GetEntityCoords(GetPlayerPed(-1))) < 10.0 then
-                Draw3DText( 1359.22, 1138.97, 113.76  -.500, "~b~A~w~D Event",4,0.3,0.2)
-                Draw3DText( 1359.22, 1138.97, 113.76  -.900, "Cache-cache",4,0.3,0.2)
-            end
-            if GetDistanceBetweenCoords( 1359.22, 1138.97, 113.76, GetEntityCoords(GetPlayerPed(-1))) < 2.0 then
-                Draw3DText( 1359.22, 1138.97, 113.76  -1.400, "Appuyez sur E pour rejoindre l'équipe des chercheurs",4,0.15,0.1)
-                if (IsControlJustReleased(1, 38)) then
-                    if isInGame == false then
-                        teamName = "searcher"
-                        isInGame = true
-                        TriggerServerEvent("ad_event_cacheCache:joinTeam", teamName)
-                        break
-                    else
-                        return
+                if dst < 10.0 then
+                    Draw3DText(1359.22, 1138.97, 113.76  -.500, "~b~A~w~D Event",4,0.3,0.2)
+                    Draw3DText(1359.22, 1138.97, 113.76  -.900, "Cache-cache",4,0.3,0.2)
+                    if dst < 2.0 then
+                        Draw3DText(1359.22, 1138.97, 113.76  -1.400, "Appuyez sur E pour rejoindre l'équipe des chercheurs",4,0.15,0.1)
+                        if (IsControlJustReleased(1, 38)) then
+                            if isInGame == false then
+                                teamName = "searcher"
+                                isInGame = true
+                                TriggerServerEvent("ad_event_cacheCache:joinTeam", teamName)
+                                break
+                            else
+                                return
+                            end
+                        end
                     end
                 end
             end
 
-            if GetDistanceBetweenCoords( 1361.64, 1156.06, 113.76, GetEntityCoords(GetPlayerPed(-1))) < 20.0 then
+            local dst2 = GetDistanceBetweenCoords(1361.64, 1156.06, 113.76, GetEntityCoords(PlayerPed))
+            if dst2 < 20.0 then
                 DrawMarker(1, 1361.64, 1156.06, 113.76 - 1.5, 0, 0, 0, 0, 0, 0, 3.0001, 3.0001, 1.5001, 0, 0, 0, 180, 0, 0, 0,0)
                 _Wait = 1
-            end
-            if GetDistanceBetweenCoords( 1361.64, 1156.06, 113.76, GetEntityCoords(GetPlayerPed(-1))) < 10.0 then
-                Draw3DText( 1361.64, 1156.06, 113.76  -.500, "~b~A~w~D Event",4,0.3,0.2)
-                Draw3DText( 1361.64, 1156.06, 113.76  -.900, "Cache-cache",4,0.3,0.2)
-            end
-            if GetDistanceBetweenCoords( 1361.64, 1156.06, 113.76, GetEntityCoords(GetPlayerPed(-1))) < 2.0 then
-                Draw3DText( 1361.64, 1156.06, 113.76  -1.400, "Appuyez sur E pour rejoindre l'équipe des cachés",4,0.15,0.1)
-                if (IsControlJustReleased(1, 38)) then
-                    if isInGame == false then
-                        teamName = "cacher"
-                        isInGame = true
-                        TriggerServerEvent("ad_event_cacheCache:joinTeam", teamName)
-                        break
-                    else
-                        return
+                if dst2 < 10.0 then
+                    Draw3DText(1361.64, 1156.06, 113.76  -.500, "~b~A~w~D Event",4,0.3,0.2)
+                    Draw3DText(1361.64, 1156.06, 113.76  -.900, "Cache-cache",4,0.3,0.2)
+                    if dst2 < 2.0 then
+                        Draw3DText(1361.64, 1156.06, 113.76  -1.400, "Appuyez sur E pour rejoindre l'équipe des cachés",4,0.15,0.1)
+                        if (IsControlJustReleased(1, 38)) then
+                            if isInGame == false then
+                                teamName = "cacher"
+                                isInGame = true
+                                TriggerServerEvent("ad_event_cacheCache:joinTeam", teamName)
+                                break
+                            else
+                                return
+                            end
+                        end
                     end
                 end
             end
@@ -394,4 +397,3 @@ Citizen.CreateThread(function()
         EndTextCommandSetBlipName(info.blip)
     end
 end)
-
