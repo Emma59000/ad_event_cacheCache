@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>AD Event</title>
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
+
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body id="body" style="display:none;">
+    <div style="text-align: center">
+      <div class="centrer">
+        <img class="centrer" id="imgGreen" style="display:none;" src="utils/scoreGreen.png" alt="" width="272px" height="318px"/>
+        <img class="centrer" id="imgRed" style="display:none;" src="utils/scoreRed.png" alt="" width="272px" height="318px"/>
+      </div>
+      <div class="PosText">
+        <h1 class="text"><u>Temps restant</u></h1></br>
+        <h1 id ="text2" class="text"><u>de la partie</u></h1></br>
+        <h1 id="time" class="text">Time</h1></br>
+        <h1 class="text"><u>Votre Score de la partie</u></h1></br>
+        <h1 id="score" class="text">Score</h1>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js'></script>
+    <script src="js/index.js"></script>
+  </body>
+
+</html>

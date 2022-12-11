@@ -1,0 +1,18 @@
+.centrer{
+  position: absolute; /* postulat de départ */
+  top: 50%;
+  right:0;
+  transform: translate(0%, -50%); /* décalage de 50% de sa propre taille pour la hauteur */
+}
+
+.PosText{
+  position: absolute; /* postulat de départ */
+  top: 54%;
+  right:15px;
+  transform: translate(0%, -50%); /* décalage de 50% de sa propre taille pour la hauteur */
+}
+
+.text{
+  color: rgb(255, 255, 255);
+  font-size: 22px;
+}
